@@ -40,6 +40,7 @@ export default {
     "@nuxtjs/style-resources",
     "@nuxtjs/eslint-module",
     "@nuxtjs/dotenv",
+    "nuxt-animejs",
   ],
 
   styleResources: {

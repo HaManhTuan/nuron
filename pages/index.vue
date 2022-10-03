@@ -201,24 +201,27 @@
             </div>
           </div>
         </div>
-        <div
-          id="collapseExample"
-          class="default-exp-wrapper"
-          :class="statusFilter ? 'collapse show' : 'collapse'"
-        >
-          <div class="inner">
-            <SelectOption
-              :label="'LIKES'"
-              :data-sort="dataLikes"
-              :class-name="'filter-select-option'"
-            />
-            <SelectOption
-              :label="'Category'"
-              :data-sort="dataCategory"
-              :class-name="'filter-select-option'"
-            />
+        <transition name="fade" appear>
+          <div
+            v-if="statusFilter"
+            id="collapseExample"
+            class="default-exp-wrapper"
+            :class="classCollapsing"
+          >
+            <div class="inner">
+              <SelectOption
+                :label="'LIKES'"
+                :data-sort="dataLikes"
+                :class-name="'filter-select-option'"
+              />
+              <SelectOption
+                :label="'Category'"
+                :data-sort="dataCategory"
+                :class-name="'filter-select-option'"
+              />
+            </div>
           </div>
-        </div>
+        </transition>
         <div class="row g-5 animate__animated animate__bounceIn">
           <div class="col-5 col-lg-4 col-md-6 col-sm-6 col-12">
             <div class="product-style-one no-overlay">
@@ -979,7 +982,16 @@ export default {
       ],
     };
   },
-  computed: {},
+  computed: {
+    classCollapsing() {
+      if (this.statusFilter) {
+        return "collapse show";
+      } else {
+        return "collapse";
+      }
+    },
+  },
+  mounted() {},
   methods: {
     chooseOptionSort(val) {
       this.statusBest = !this.statusBest;
@@ -996,3 +1008,12 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s linear;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+</style>
