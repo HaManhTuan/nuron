@@ -433,7 +433,7 @@
   content: "\e987";
 }
 .feather-log-in:before {
-  content: "\e988";
+  content: "\e885";
 }
 .feather-log-out:before {
   content: "\e989";
@@ -748,7 +748,7 @@
   content: "\e9f0";
 }
 .feather-user:before {
-  content: "\e9f1";
+  content: "\e8e9";
 }
 .feather-user-check:before {
   content: "\e9f2";
@@ -16050,9 +16050,9 @@ iframe {
 /*.bg_image--8 {*/
 /*  background-image: url(`~@/assets/images/bg/bg-image-8.jpg`);*/
 /*}*/
-/*.bg_image--9 {*/
-/*  background-image: url(`~@/assets/images/bg/bg-image-9.jpg`);*/
-/*}*/
+.bg_image--9 {
+  background-image: url('/img/bg-image-9.jpg');
+}
 /*.bg_image--10 {*/
 /*  background-image: url(`~@/assets/images/bg/bg-image-10.jpg`);*/
 /*}*/
@@ -24138,6 +24138,17 @@ ul.slick-dots .slick-active {
   border: 2px solid var(--color-border);
   transition: 0.3s;
 }
+
+.form-wrapper-one input.input-valid,
+.form-wrapper-one textarea.input-valid {
+  border: 2px solid hsl(0deg 95% 45% / 30%);
+}
+
+.input-invalid-message {
+  color: #f52e2e;
+  font-size: 12px;
+}
+
 .form-wrapper-one input:focus,
 .form-wrapper-one textarea:focus {
   border: 2px solid var(--color-primary) !important;

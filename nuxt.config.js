@@ -28,7 +28,15 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: "~/plugins/vue-slick-carousel", mode: "client" }],
+  plugins: [
+    { src: "~/plugins/vue-slick-carousel", mode: "client" },
+    "~/plugins/validate.js",
+    "~/plugins/axios.js",
+  ],
+
+  router: {
+    middleware: "auth",
+  },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -41,6 +49,7 @@ export default {
     "@nuxtjs/eslint-module",
     "@nuxtjs/dotenv",
     "nuxt-animejs",
+    "cookie-universal-nuxt",
   ],
 
   styleResources: {
@@ -50,9 +59,13 @@ export default {
       "~assets/scss/app.scss",
     ],
   },
+  axios: {
+    baseURL: process.env.API_URL,
+    // progress: true,
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ["@nuxtjs/axios", "@nuxtjs/toast"],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

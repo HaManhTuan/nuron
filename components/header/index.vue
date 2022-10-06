@@ -214,6 +214,13 @@
               </li>
             </ul>
           </div>
+          <div class="setting-option rn-icon-list notification-badge">
+            <div class="icon-box">
+              <nuxt-link :to="login ? '/account' : '/login'">
+                <i :class="login ? 'feather-user' : 'feather-log-in'"></i>
+              </nuxt-link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -228,6 +235,11 @@ export default {
       theme: "active-dark-mode",
       statusNavbar: false,
     };
+  },
+  computed: {
+    login() {
+      return this.$store.state.auth.customer.id || false;
+    },
   },
   methods: {
     activeTheme(value) {
