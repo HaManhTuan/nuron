@@ -322,6 +322,7 @@ export default {
   },
   methods: {
     clickOpenResetPassword() {
+      console.log("1");
       this.isResetPassword = !this.isResetPassword;
     },
     clickTab(val) {
